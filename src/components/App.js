@@ -12,7 +12,7 @@ function App() {
   const tasksSaved = localStorage.getItem('tasks');
   const configSaved = localStorage.getItem('config');
   const [tasks, updateTasks] = useState(tasksSaved ? JSON.parse(tasksSaved).map((t)=>new Task(t)) : []);
-  const [config, updateConfig] = useState(configSaved ? new Configuration(JSON.parse(configSaved)) : {});
+  const [config, updateConfig] = useState(new Configuration(configSaved ? JSON.parse(configSaved) : {}));
 
   // Dès qu'une modif a été ajoutée dans la variable tasks, on enregistre dans le localstorage
   useEffect(()=>{
