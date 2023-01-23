@@ -39,7 +39,10 @@ input::placeholder{
     color:#B5B5B5;
 }
 
-.is-2-colonne {width:200%;}
+.colonne.is-2-colonne {width:200%;}
+.colonne.is-3-colonne {width:300%;}
+.colonne.is-4-colonne {width:400%;}
+.colonne.is-5-colonne {width:500%;}
 
 .content-centered {
     display:flex;
