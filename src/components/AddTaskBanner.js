@@ -12,9 +12,10 @@ function AddTaskBanner({tasks, updateTasks}){
 
     const ajouterTache = () => {
         if(contentTaskAdd.trim().length <= 0) return;
+        const content = contentTaskAdd.trim().charAt(0).toUpperCase() + contentTaskAdd.trim().slice(1);
         updateTasks([
             ...tasks,
-            new Task({id:tasks.length, content:contentTaskAdd})
+            new Task({id:tasks.length, content:content})
         ]);
         updateContentTaskAdd("");
     };

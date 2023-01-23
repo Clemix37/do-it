@@ -37,7 +37,14 @@ function TaskContent({task, tasks, updateTasks}){
     if(task.isEditMode){
         return (
             <div className="ligne">
-                <input type="text" className="task-content" value={contentTask} onChange={handleChange} onKeyDown={handleKeyDown} autoFocus={true} onBlur={handleBlur} />
+                <textarea className="task-content" 
+                    value={contentTask} 
+                    onChange={handleChange} 
+                    onKeyDown={handleKeyDown} 
+                    autoFocus={true} 
+                    onBlur={handleBlur}
+                >
+                </textarea>
             </div>
         );
     }
