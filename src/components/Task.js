@@ -9,7 +9,7 @@ function Task({task, tasks, updateTasks}){
             <div className="colonne">
                 <TaskStatus task={task} tasks={tasks} updateTasks={updateTasks} />
             </div>
-            <div className="colonne">
+            <div className="colonne is-5-colonne">
                 <TaskContent task={task} tasks={tasks} updateTasks={updateTasks} />
             </div>
             <div className="colonne">
