@@ -1,11 +1,3 @@
-#inputAddTask {
-    width:80%;
-    border-radius: 8px;
-    height:30px;
-    border:1px solid black;
-    padding:5px;
-    font-size: 20px;
-}
 .icone-add {
     cursor: pointer;
     font-size: 30px;

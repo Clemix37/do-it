@@ -28,7 +28,6 @@ function AddTaskBanner({tasks, updateTasks}){
             <input 
                 type="text" 
                 name="addTask" 
-                id="inputAddTask" 
                 value={contentTaskAdd} 
                 onChange={handleChange} // Obligatoire quand on a une proerty value={}
                 placeholder="Content" 
