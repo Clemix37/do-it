@@ -11,8 +11,10 @@ function Config({config, updateConfig}){
 
     return (
         <div className="ligne">
-            <Banner config={config} updateConfig={updateConfig} title={title} updateTitle={updateTitle} />
-            <button className="btn is-gray" onClick={handleClickSave}>Save Config ! </button>
+            <div className="colonne">
+                <Banner config={config} updateConfig={updateConfig} title={title} updateTitle={updateTitle} />
+                <button className="btn is-gray" onClick={handleClickSave}>Save Config ! </button>
+            </div>
         </div>
     );
 }

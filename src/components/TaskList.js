@@ -1,5 +1,5 @@
 import "../styles/TaskList.css";
-import Task from './Task';
+import Task from './Task/Task';
 
 function TaskList({tasks, updateTasks}){
     const tasksDone = tasks.filter(t => t.done);

@@ -1,4 +1,4 @@
-import '../styles/ProgressBar.css'
+import '../../styles/ActionBanner/ProgressBar.css'
 
 function ProgressBar({tasks}){
     const percentageDone = (((tasks.filter(t => t.done)?.length ?? 0) / (tasks.length ?? 0)) * 100).toFixed(2);

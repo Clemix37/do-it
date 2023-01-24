@@ -1,17 +1,21 @@
 import '../styles/App.css';
 import Banner from './Banner';
-import ActionBanner from './ActionBanner';
+import ActionBanner from './ActionBanner/ActionBanner';
 import TaskList from './TaskList';
 import Config from './Config';
 import { useEffect, useState } from 'react';
 import Task from '../classes/Task';
 import Configuration from '../classes/Configuration';
+import SubTask from '../classes/SubTask';
 
 function App() {
   // Au chargement, on récupère les potentielles tâches enregistrées
   const tasksSaved = localStorage.getItem('tasks');
   const configSaved = localStorage.getItem('config');
-  const [tasks, updateTasks] = useState(tasksSaved ? JSON.parse(tasksSaved).map((t)=>new Task(t)) : []);
+  const [tasks, updateTasks] = useState(tasksSaved ? JSON.parse(tasksSaved).map((t)=>{
+    t.subTasks = t.subTasks?.map((s)=>new SubTask(s)) ?? [];
+    return new Task(t);
+  }) : []);
   const [config, updateConfig] = useState(new Configuration(configSaved ? JSON.parse(configSaved) : {}));
 
   // Dès qu'une modif a été ajoutée dans la variable tasks, on enregistre dans le localstorage

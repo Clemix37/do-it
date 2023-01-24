@@ -1,4 +1,4 @@
-import "../styles/ActionBanner.css";
+import "../../styles/ActionBanner/ActionBanner.css";
 import AddTaskBanner from './AddTaskBanner';
 import ProgressBar from './ProgressBar';
 

@@ -1,4 +1,4 @@
-import "../styles/TaskActions.css";
+import "../../styles/Task/TaskActions.css";
 
 function TaskActions({task, tasks, updateTasks}){
 

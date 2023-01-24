@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/TaskContent.css";
+import "../../styles/Task/TaskContent.css";
 
 function TaskContent({task, tasks, updateTasks}){
     const [contentTask, updateContentTask] = useState(task.content);

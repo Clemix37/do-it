@@ -1,0 +1,10 @@
+.di-sub-task-icon {
+    align-items: center;
+}
+.di-sub-task-box{
+    border-left:1px solid #6c6b6b;
+    border-bottom:1px solid #6c6b6b;
+    width: 20px;
+    height: 10px;
+    border-bottom-left-radius: 10px;
+}

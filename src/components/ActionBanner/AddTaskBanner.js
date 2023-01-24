@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Task from "../classes/Task";
-import "../styles/AddTaskBanner.css";
+import Task from "../../classes/Task";
+import "../../styles/ActionBanner/AddTaskBanner.css";
 
 function AddTaskBanner({tasks, updateTasks}){
     const [contentTaskAdd, updateContentTaskAdd] = useState("");
