@@ -15,7 +15,7 @@ function AddTaskBanner({tasks, updateTasks}){
         const content = contentTaskAdd.trim().charAt(0).toUpperCase() + contentTaskAdd.trim().slice(1);
         updateTasks([
             ...tasks,
-            new Task({id:tasks.length, content:content})
+            new Task({id:tasks.length+1, content:content})
         ]);
         updateContentTaskAdd("");
     };
