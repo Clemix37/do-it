@@ -19,13 +19,10 @@ function App() {
   const [config, updateConfig] = useState(new Configuration(configSaved ? JSON.parse(configSaved) : {}));
 
   // Dès qu'une modif a été ajoutée dans la variable tasks, on enregistre dans le localstorage
-  useEffect(()=>{
-		localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem('config', JSON.stringify(config));
-  }, [config]);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [config, tasks]);
 
   if(config.isConfigOpen){
     return (
