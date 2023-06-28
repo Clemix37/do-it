@@ -1,28 +1,17 @@
 import "../styles/TaskList.css";
 import Task from './Task/Task';
 
-function TaskList({tasks, updateTasks}){
-    const tasksDone = tasks.filter(t => t.done);
-    const tasksNotDone = tasks.filter(t => !t.done);
+function TaskList({tasks, updateTasks, projects, updateProjects, projectOpened}){
+    const project = projects.find(proj => proj.id === projectOpened);
     return (
         <div className="di-task-list colonne">
             <div className="ligne">
-                <h3>Tasks 🚧:</h3>
+                <h3>{project.nom} ({project.tasks.length}) :</h3>
             </div>
             <div className="ligne">
                 <div className="colonne">
-                    {tasksNotDone.map((t) => (
-                        <Task task={t} tasks={tasks} updateTasks={updateTasks} key={t.id} />
-                    ))}
-                </div>
-            </div>
-            <div className="ligne">
-                <h3>Tasks done ✅</h3>
-            </div>
-            <div className="ligne">
-                <div className="colonne">
-                    {tasksDone.map((t) => (
-                        <Task task={t} tasks={tasks} updateTasks={updateTasks} key={t.id} />
+                    {project.tasks.map((t) => (
+                        <Task task={t} tasks={tasks} updateTasks={updateTasks} key={t.id} projects={projects} updateProjects={updateProjects} projectOpened={projectOpened} />
                     ))}
                 </div>
             </div>

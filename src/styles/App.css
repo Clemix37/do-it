@@ -1,11 +1,13 @@
-#root{display:flex;}
+#root{display:flex;
+    min-height: 100vh;
+    min-width: 100vw;}
 
 .ligne, .colonne {display:flex;}
 
 .app, body {
     margin:0;
-    background-color: #121212;
-    color:#C8C8C8;
+    background-color: #001011;
+    color:#EEE5E9;
 }
 
 .ligne {

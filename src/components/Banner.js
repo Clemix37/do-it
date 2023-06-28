@@ -1,6 +1,9 @@
+import { Button, IconButton, TextField } from "@mui/material";
 import "../styles/Banner.css";
+import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
-function Banner({config,updateConfig,title,updateTitle}){
+function Banner({config,updateConfig,title,updateTitle,isPanelLeftOpened,updateIsPanelLeftOpened}){
 
     const handleClickConfigurate = () => {
         updateConfig({title:config.title,isConfigOpen:true});
@@ -14,15 +17,19 @@ function Banner({config,updateConfig,title,updateTitle}){
         updateTitle(e.target.value);
     };
 
+    const toggleLeftPanel = () => {
+        updateIsPanelLeftOpened(!isPanelLeftOpened);
+    };
+
     if(config.isConfigOpen){
         return (
             <div className="di-banner ligne">
                 <div className="colonne">&nbsp;</div>
                 <div className="colonne is-2-colonne content-centered title-banner">
-                    <input value={title} onChange={handleChangeTitle} />
+                    <TextField value={title} onChange={handleChangeTitle} />
                 </div>
                 <div className="colonne is-self-start is-flex-right">
-                    <button className="btn is-gray" title="Get out" onClick={handleClickGetOutConfig}>Get Out</button>
+                    <Button className="btn is-gray" title="Exit" onClick={handleClickGetOutConfig}>Exit</Button>
                 </div>
             </div>
         );
@@ -30,12 +37,18 @@ function Banner({config,updateConfig,title,updateTitle}){
 
     return (
         <div className="di-banner ligne">
-            <div className="colonne">&nbsp;</div>
+            <div className="colonne">
+                <IconButton aria-label={isPanelLeftOpened ? "Close" : "Open"} onClick={toggleLeftPanel}>
+                    {
+                        isPanelLeftOpened ? <KeyboardArrowLeftRoundedIcon /> : <NavigateNextRoundedIcon />
+                    }
+                </IconButton>
+            </div>
             <div className="colonne is-2-colonne content-centered title-banner">
                 {config.title}
             </div>
             <div className="colonne is-self-start is-flex-right">
-                <button className="btn is-gray" title="Configurate" onClick={handleClickConfigurate}>Configurate</button>
+                <Button className="btn is-gray" title="Configurate" onClick={handleClickConfigurate}>Configurate</Button>
             </div>
         </div>
     )

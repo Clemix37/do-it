@@ -1,9 +1,11 @@
+import { v4 as uuidv4 } from 'uuid';
+
 class Task {
-    constructor({id,done=false,subTasks=[],content="",isEditMode=false,tags=[]}){
-        this.id=id;
+    constructor({done=false,content="",doing=false,isEditMode=false,tags=[]}){
+        this.id=uuidv4();
         this.done=done;
-        this.subTasks=subTasks;
         this.content=content;
+        this.doing=doing;
         this.isEditMode=isEditMode;
         this.tags=tags;
     }
