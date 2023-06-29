@@ -26,7 +26,7 @@ function AddTaskBanner({
     updateTasks([tache, ...tasks]);
     updateProjects([
       ...projects.map((proj) => {
-        if (proj.id === projectOpened) proj.tasks.push(tache);
+        if (proj.id === projectOpened) proj.addTask(tache);
         return proj;
       }),
     ]);
