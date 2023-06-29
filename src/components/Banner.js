@@ -29,7 +29,7 @@ function Banner({config,updateConfig,title,updateTitle,isPanelLeftOpened,updateI
                     <TextField value={title} onChange={handleChangeTitle} />
                 </div>
                 <div className="colonne is-self-start is-flex-right">
-                    <Button className="btn is-gray" title="Exit" onClick={handleClickGetOutConfig}>Exit</Button>
+                    <Button variant="contained" title="Exit" onClick={handleClickGetOutConfig}>Exit</Button>
                 </div>
             </div>
         );
