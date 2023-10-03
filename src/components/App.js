@@ -18,21 +18,21 @@ import { green, red } from "@mui/material/colors";
 import { TYPE_PROJECT } from "../constantes";
 
 export const theme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#03dfff",
-    },
-    secondary: {
-      main: "#446DF6",
-    },
-    error: {
-      main: red[500],
-    },
-    success: {
-      main: green[400],
-    },
-  },
+	palette: {
+		mode: "dark",
+		primary: {
+			main: "#03dfff",
+		},
+		secondary: {
+			main: "#446DF6",
+		},
+		error: {
+			main: red[500],
+		},
+		success: {
+			main: green[400],
+		},
+	},
 });
 
 const createDefaultProjects = (tasks) => {
@@ -46,62 +46,62 @@ const createDefaultProjects = (tasks) => {
 };
 
 function App() {
-  // Au chargement, on récupère les potentielles tâches enregistrées
-  const tasksSaved = localStorage.getItem("tasks");
-  const projectsSaved = localStorage.getItem("projects");
-  const configSaved = localStorage.getItem("config");
-  const [tasks, updateTasks] = useState(
-    tasksSaved ? JSON.parse(tasksSaved).map((t) => new Task(t)) : []
-  );
-  const [projects, updateProjects] = useState(
-    projectsSaved ? JSON.parse(projectsSaved).map((t) => new Project(t)) : createDefaultProjects(tasks)
-  );
-  const [config, updateConfig] = useState(
-    new Configuration(configSaved ? JSON.parse(configSaved) : {})
-  );
-  const [isPanelLeftOpened, updateIsPanelLeftOpened] = useState(false);
-  const [projectOpened, setProjectOpened] = useState(projects[0].id);
+	// Au chargement, on récupère les potentielles tâches enregistrées
+	const tasksSaved = localStorage.getItem("tasks");
+	const projectsSaved = localStorage.getItem("projects");
+	const configSaved = localStorage.getItem("config");
+	const [tasks, updateTasks] = useState(
+		tasksSaved ? JSON.parse(tasksSaved).map((t) => new Task(t)) : []
+	);
+	const [projects, updateProjects] = useState(
+		projectsSaved ? JSON.parse(projectsSaved).map((t) => new Project(t)) : createDefaultProjects(tasks)
+	);
+	const [config, updateConfig] = useState(
+		new Configuration(configSaved ? JSON.parse(configSaved) : {})
+	);
+	const [isPanelLeftOpened, updateIsPanelLeftOpened] = useState(false);
+	const [projectOpened, setProjectOpened] = useState(projects[0].id);
 
-  // Dès qu'une modif a été ajoutée dans la variable tasks, on enregistre dans le localstorage
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    localStorage.setItem("config", JSON.stringify(config));
-    localStorage.setItem("projects", JSON.stringify(projects));
-  }, [config, tasks, projects]);
+	// Dès qu'une modif a été ajoutée dans la variable tasks, on enregistre dans le localstorage
+	useEffect(() => {
+		localStorage.setItem("tasks", JSON.stringify(tasks));
+		localStorage.setItem("config", JSON.stringify(config));
+		localStorage.setItem("projects", JSON.stringify(projects));
+	}, [config, tasks, projects]);
 
-  if (config.isConfigOpen) {
-    return (
-      <div className="app colonne">
-        <Config config={config} updateConfig={updateConfig} />
-      </div>
-    );
-  }
-  return (
-    <ThemeProvider theme={theme}>
-      <div className="app colonne">
-        <div className="ligne">
-          {isPanelLeftOpened ? <LeftPanel projects={projects} setProjectOpened={setProjectOpened} /> : <></>}
-          <div className="colonne">
-            <Banner
-              config={config}
-              updateConfig={updateConfig}
-              isPanelLeftOpened={isPanelLeftOpened}
-              updateIsPanelLeftOpened={updateIsPanelLeftOpened}
-            />
-            <ActionBanner
-              tasks={tasks}
-              updateTasks={updateTasks}
-              projects={projects}
-              updateProjects={updateProjects}
-			  projectOpened={projectOpened}
-			  setProjectOpened={setProjectOpened}
-            />
-            <TaskList tasks={tasks} updateTasks={updateTasks} projects={projects} updateProjects={updateProjects} projectOpened={projectOpened} />
-          </div>
-        </div>
-      </div>
-    </ThemeProvider>
-  );
+	if (config.isConfigOpen) {
+		return (
+			<div className="app colonne">
+				<Config config={config} updateConfig={updateConfig} />
+			</div>
+		);
+	}
+	return (
+		<ThemeProvider theme={theme}>
+			<div className="app colonne">
+				<div className="ligne">
+					{isPanelLeftOpened ? <LeftPanel projects={projects} setProjectOpened={setProjectOpened} /> : <></>}
+					<div className="colonne">
+						<Banner
+							config={config}
+							updateConfig={updateConfig}
+							isPanelLeftOpened={isPanelLeftOpened}
+							updateIsPanelLeftOpened={updateIsPanelLeftOpened}
+						/>
+						<ActionBanner
+							tasks={tasks}
+							updateTasks={updateTasks}
+							projects={projects}
+							updateProjects={updateProjects}
+				projectOpened={projectOpened}
+				setProjectOpened={setProjectOpened}
+						/>
+						<TaskList tasks={tasks} updateTasks={updateTasks} projects={projects} updateProjects={updateProjects} projectOpened={projectOpened} />
+					</div>
+				</div>
+			</div>
+		</ThemeProvider>
+	);
 }
 
 export default App;
